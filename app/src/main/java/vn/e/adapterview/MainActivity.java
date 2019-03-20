@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +14,24 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView lvList;
 
+    private Spinner spStudents;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        spStudents = findViewById(R.id.spStudents);
+
+        String[] pupils = {"Huy","Quynh","Nguyen","Sang","Toan"};
+
+        ArrayAdapter<String> pupilAdapter = new ArrayAdapter<>(MainActivity.this,
+
+                android.R.layout.simple_spinner_item,pupils);
+
+
+        // set du lieu vao spinner
+        spStudents.setAdapter(pupilAdapter);
 
         lvList = findViewById(R.id.lvList);
         // 1 chuoi sinh vien Rong~
